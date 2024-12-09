@@ -1,7 +1,8 @@
-import { createContext } from 'react';
+import React, { createContext } from 'react';
 import { observable, action } from 'mobx';
 import { getTestData } from '@/apis/ceshi';
-
+import { Button } from 'antd';
+import { Link } from 'react-router-dom';
 class TestDayOneStore {
   @observable page = 996;
   @observable pageParam = {
@@ -35,6 +36,17 @@ class TestDayOneStore {
       title: '审批完成日期',
       dataIndex: 'receiveDate',
     },
+    {
+      title: '操作',
+      dataIndex: 'action',
+      render: (text, record, index) => {
+        return (
+          <Link to={`/testDayOne/details`}>
+            <Button type="link">查看</Button>
+          </Link>
+        );
+      },
+    },
   ];
   @observable loading = false;
   @observable tableData = [];
@@ -64,10 +76,12 @@ class TestDayOneStore {
       queryParam: { ...this.searchParams },
     };
     const res = await getTestData(params);
-    this.tableData = res.data.records || [];
-    this.pagination.total = res.data.total || 0;
-    this.pagination.currentPage = this.pageParam.pageNo;
-    this.pagination.pageSize = this.pageParam.pageSize;
+    if (res.data) {
+      this.tableData = res.data.records || [];
+      this.pagination.total = res.data.total || 0;
+      this.pagination.currentPage = this.pageParam.pageNo;
+      this.pagination.pageSize = this.pageParam.pageSize;
+    }
     this.loading = false;
   }
   @action.bound

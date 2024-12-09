@@ -49,5 +49,4 @@ const renderRoutes = (routes) => {
 };
 
 const AppRouter = () => <Router>{renderRoutes(config)}</Router>;
-
 export default AppRouter;

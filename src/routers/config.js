@@ -8,10 +8,12 @@ import {
   StarOutlined,
   WarningOutlined,
   FrownOutlined,
+  RadarChartOutlined,
 } from '@ant-design/icons';
 
 import BasicLayout from '@/layouts/BasicLayout';
 import BlankLayout from '@/layouts/BlankLayout';
+// import TestDayOneDetails from '@/pages/testDayOne/details.js';
 
 const config = [
   {
@@ -24,6 +26,7 @@ const config = [
         name: '登录页', // 菜单名称 (不设置,则不展示在菜单栏中）
         component: lazy(() => import('@/pages/Login')), // 懒加载 路由组件
       },
+
       {
         path: '/',
         // exact: true,
@@ -50,8 +53,12 @@ const config = [
           {
             path: '/testDayOne',
             name: '测试页面',
-            icon: <FormOutlined />,
+            icon: <RadarChartOutlined />,
             component: lazy(() => import('@/pages/testDayOne')),
+          },
+          {
+            path: '/testDayOne/details',
+            component: lazy(() => import('@/pages/testDayOne/details.js')),
           },
           {
             path: '/system',

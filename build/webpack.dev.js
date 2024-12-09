@@ -13,6 +13,9 @@ module.exports = merge(commonConfig, {
     open: true,
     historyApiFallback: true,
     compress: true,
+    client: {
+      overlay: false, // 禁用全屏错误提示
+    },
     // 接口代理转发
     proxy: {
       '/testapi': {
