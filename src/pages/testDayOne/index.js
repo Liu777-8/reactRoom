@@ -17,6 +17,7 @@ const TestDayOnePage = () => {
       <Divider />
       <div className="table-container">
         <Table
+          style={{ height: '100%' }}
           loading={pageStore.loading}
           dataSource={toJS(pageStore.tableData)}
           columns={toJS(pageStore.columns)}

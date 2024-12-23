@@ -41,7 +41,7 @@ class TestDayOneStore {
       dataIndex: 'action',
       render: (text, record, index) => {
         return (
-          <Link to={`/testDayOne/details`}>
+          <Link to={`/details`}>
             <Button type="link">查看</Button>
           </Link>
         );
@@ -81,6 +81,16 @@ class TestDayOneStore {
       this.pagination.total = res.data.total || 0;
       this.pagination.currentPage = this.pageParam.pageNo;
       this.pagination.pageSize = this.pageParam.pageSize;
+    } else {
+      this.tableData = [
+        {
+          key: 1,
+          title: '测试数据',
+          docCode: '测试数据',
+          publishInstitution: '测试数据',
+          receiveDate: '测试数据',
+        },
+      ];
     }
     this.loading = false;
   }

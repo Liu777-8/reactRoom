@@ -1,0 +1,12 @@
+.details-container {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  padding: 16px;
+}
+.details-container .box_item {
+  width: 100px;
+  height: 100px;
+  background-color: #f00;
+  margin-top: 1900px;
+}

@@ -57,7 +57,7 @@ const config = [
             component: lazy(() => import('@/pages/testDayOne')),
           },
           {
-            path: '/testDayOne/details',
+            path: '/details',
             component: lazy(() => import('@/pages/testDayOne/details.js')),
           },
           {
